@@ -2,7 +2,7 @@ import { useState } from "react";
 import Chat from "./Chat";
 
 function App() {
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(true);
   const [prompt, setPrompt] = useState(null);
   const [chat, setChat] = useState([
     {
@@ -60,11 +60,11 @@ function App() {
       <div className="flex">
           {/* Sidebar */}
           <div className="relative h-[100vh] dark:text-white text-black bg-[#66BFBF] dark:bg-[#18122B] w-[15%] p-2">
-              <button className="text-black border-black dark:text-white dark:border-white border-[1px] rounded-lg w-full p-3 hover:text-black hover:bg-white transition-all ease-in-out duration-150 font-medium" onClick={clearChat}>
+              <button className="text-black border-black dark:text-white dark:border-white border-[1px] rounded-lg w-full p-3 hover:text-black dark:hover:text-black hover:bg-white transition-all ease-in-out duration-150 font-medium" onClick={clearChat}>
                 Clear Chat
               </button>
-              <button className="text-black border-black dark:text-white dark:border-white border-[1px] rounded-lg w-full p-3 hover:text-black hover:bg-white transition-all ease-in-out duration-150 mt-3 font-medium" onClick={()=> setDark(!dark)}>
-                Toggle Dark Mode
+              <button className="text-black border-black dark:text-white dark:border-white border-[1px] rounded-lg w-full p-3 hover:text-black dark:hover:text-black hover:bg-white transition-all ease-in-out duration-150 mt-3 font-medium" onClick={()=> setDark(!dark)}>
+                {dark ? "Light" : "Dark"} Mode
               </button>
               <p className="absolute bottom-2 left-0 right-0 text-center text-xs dark:text-white text-black">
                 Made with ❤️ by Muthu Aanand</p>
