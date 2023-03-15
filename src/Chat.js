@@ -2,15 +2,15 @@ import user from "./user-modified.png";
 import bot from "./ai-bot-modified.png";
 
 function Chat(props){
-    var bg;
-    if(props.chat === "user")
-        bg="bg-[#635985]"
-    else
-        bg="";
+    var flexDirection, justifyFlex;
+    props.chat === "bot" ? flexDirection = "flex-row" : flexDirection = "flex-row-reverse";
+    props.chat === "bot" ? justifyFlex = "justify-start" : justifyFlex = "justify-end";
     return(
-        <div className={`flex flex-row space-x-4 p-3 ${bg}`}>
-            <img src={props.chat==="user" ? user : bot} className="h-14 w-14" alt="pfp" />
-            <p className="text-white place-self-center">{props.message}</p>
+        <div className={`flex ${justifyFlex} mb-2`}>
+            <div className={`flex ${flexDirection} w-fit py-1 px-3 m-3 rounded-2xl bg-white dark:bg-[#635985]`}>
+                <img src={props.chat==="user" ? user : bot} className="h-12 w-12" alt="pfp" />
+                <p className="dark:text-white text-black place-self-center mx-3">{props.message}</p>
+            </div>
         </div>
     )
 }
